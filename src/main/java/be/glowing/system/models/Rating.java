@@ -1,28 +1,25 @@
 package be.glowing.system.models;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Post {
+public class Rating {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToMany(mappedBy="post_content")
-    private List<PostContent> content;
-    private PostType type;
+    private int rating;
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
-    private User postedBy;
-    @OneToMany(mappedBy="rating")
-    private List<Rating> ratingList;
-
+    private User ratedBy;
+    @ManyToOne
+    @JoinColumn(name="post_id", nullable=false)
+    private Post ratedPost;
 }
