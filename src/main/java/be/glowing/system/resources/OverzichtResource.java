@@ -9,15 +9,15 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
-@Path("/overzicht")
+@Path("/reviewer")
 public class OverzichtResource {
 
     @Inject
-    Template overzicht;
+    Template reviewer;
 
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public TemplateInstance get(){
-        return overzicht.instance();
+    public TemplateInstance get(@QueryParam("name") String name){
+        return reviewer.data("name",name);
     }
 }
