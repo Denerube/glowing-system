@@ -1,6 +1,4 @@
-{@java.lang.String name}
-{@java.time.LocalDate startDate}
-{@java.time.LocalDate endDate}
+
 
 <html lang="html5">
 <head>
@@ -16,11 +14,14 @@
 
 <header>
     <div class="navBar">
-        <a href="/reviewer?name=test">klik hier</a>
+        <div id="reviewers"
+             hx-get="home/get"
+             hx-trigger="load">
+            <!-- To be replaced by the result of calling /get -->
+        </div>
     </div>
     <h1>Hello</h1>
     <div>
-
     </div>
 </header>
 

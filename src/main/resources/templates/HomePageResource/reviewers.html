@@ -1,0 +1,10 @@
+{@be.glowing.system.models.User[] reviewers}
+{@be.glowing.system.models.User user}
+
+
+<div id="listOfReviewers">
+    <p>Test werkt?</p>
+    {#for rev in reviewers}
+    <a href="/reviewer?id={rev.id}">{rev.id} : {rev.name}</a>
+    {/for}
+</div>
